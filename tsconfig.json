@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "moduleResolution": "Node",
+        "strict": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noEmit": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+
+        // Fixes the annoying "Could not find a declaration file for" error too!
+        "noImplicitAny": false
+    },
+    "include": ["Core/Js/**/*"]
+}

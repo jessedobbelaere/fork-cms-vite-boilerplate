@@ -1,0 +1,30 @@
+{
+  "name": "fork-cms-vite-boilerplate",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,md,json}'",
+    "prettier-check": "prettier --list-different '**/*.{js,jsx,ts,tsx,css,scss,md,json}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix Core/Js/*"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "0.3.3",
+    "@tailwindcss/typography": "0.4.1",
+    "@vitejs/plugin-legacy": "1.5.1",
+    "autoprefixer": "10.3.2",
+    "postcss": "8.3.6",
+    "postcss-import": "14.0.2",
+    "postcss-nested": "5.0.6",
+    "prettier": "2.3.2",
+    "prettier-plugin-twig-melody": "0.4.6",
+    "rollup-plugin-critical": "1.0.7",
+    "tailwindcss": "2.2.7",
+    "typescript": "4.3.5",
+    "vite": "2.4.2",
+    "vite-plugin-checker": "0.3.4",
+    "vite-plugin-restart": "0.0.2"
+  },
+  "dependencies": {
+    "qs": "6.10.1"
+  }
+}

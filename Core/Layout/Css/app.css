@@ -1,0 +1,33 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@import 'tailwindcss/base';
+
+/**
+  * This injects any component classes registered by plugins.
+  */
+@import 'tailwindcss/components';
+
+/**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+@import './theme.css';
+
+/**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  */
+@import 'tailwindcss/utilities';

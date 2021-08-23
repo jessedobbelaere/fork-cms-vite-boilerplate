@@ -1,0 +1,94 @@
+{# Make sure the ViteAssetExtension.php exists and is configured in config.yml! #}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE }}" class="no-js">
+    <head>
+        {# Meta #}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="cleartype" content="on" />
+        <meta name="generator" content="Fork CMS" />
+        {{ meta|raw }}
+        {{ metaCustom|raw }}
+
+        <title>
+            {{ pageTitle }}
+        </title>
+
+        {# Mobile settings http://t.co/dKP3o1e #}
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {# Humans.txt #}
+        <link type="text/plain" rel="author" href="/humans.txt" />
+
+        {# Detect javascript for progressive enhancement #}
+        {# If a browser supports JS modules, its a modern browser: https://www.matuzo.at/blog/html-boilerplate/ #}
+        <script type="module">
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+        </script>
+
+        {% block criticalCSS %}
+            <style type="text/css">
+                {{ source('dist/critical/page_critical.min.css', ignore_missing = true) }}
+            </style>
+        {% endblock %}
+
+        {# Stylesheets #}
+        {{ vite_entry_link_tags('Core/Js/app.ts') }}
+
+        {# Favicon and Apple touch icon #}
+        {# Instead of serving dozens of icons, all you need is just five icons and one JSON file. #}
+        {# https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs #}
+        <link rel="icon" href="{{ THEME_URL }}/favicon.ico" />
+        <link rel="icon" href="{{ THEME_URL }}/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="{{ THEME_URL }}/apple-touch-icon.png" />
+        <link rel="manifest" href="{{ THEME_URL }}/manifest.webmanifest" />
+
+        {# Socials #}
+        <meta content="{{ siteTitle }}" property="fb:profile_id" />
+        <meta property="og:locale" content="nl_BE" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="{{ siteTitle }}" />
+        <meta property="og:url" content="{{ SITE_URL }}" />
+        <meta property="og:title" content="{{ pageTitle }}" />
+        <meta property="og:description" content="{{ page.meta_description }}" />
+        <meta property="og:image" content="{{ THEME_URL }}/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta content="https://www.facebook.com/{{ siteTitle }}/" property="og:see_also" />
+
+        {# Script tags #}
+        {{ vite_entry_script_tags('Core/Js/app.ts') }}
+
+        {{ siteHTMLHead|raw }}
+    </head>
+    <body class="{{ LANGUAGE }}" itemscope itemtype="http://schema.org/WebPage">
+        {{ siteHTMLStartOfBody|raw }}
+
+        {% block navigation %}
+
+        {% endblock %}
+
+        {# Main content #}
+        {% block main %}
+
+        {% endblock %}
+
+        {% block footer %}
+            {% include 'Core/Layout/Templates/Footer.html.twig' %}
+        {% endblock %}
+
+        {# For Sentry error-tracking #}
+        {# prettier-ignore-start #}
+        <script>
+            window.ENVIRONMENT = "{{ environment }}";
+            window.RELEASE_VERSION = "{{ release_version }}";
+        </script>
+        {# prettier-ignore-end #}
+
+        {{ siteHTMLEndOfBody|raw }}
+    </body>
+</html>
