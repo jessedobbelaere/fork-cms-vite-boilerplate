@@ -3,6 +3,7 @@ import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
 import checker from 'vite-plugin-checker';
 import critical from 'rollup-plugin-critical';
+import copy from 'rollup-plugin-copy';
 
 const FORK_THEME_BASE_PATH = '/src/Frontend/Themes/' + path.basename(__dirname);
 
@@ -46,6 +47,11 @@ export default ({ command }) => ({
             criticalConfig: {
                 width: 1400, // max breakpoint in our theme
             },
+        }),
+
+        // Ensure a screen.css file exists (which gets loaded by the CMS)
+        copy({
+            targets: [{ src: 'dist/assets/app.*.css', dest: 'Core/Layout/Css', rename: () => 'screen.css' }],
         }),
     ],
 
