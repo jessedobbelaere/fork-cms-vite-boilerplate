@@ -51,6 +51,7 @@ export default ({ command }) => ({
 
         // Ensure a screen.css file exists (which gets loaded by the CMS)
         copy({
+            hook: 'writeBundle',
             targets: [{ src: 'dist/assets/app.*.css', dest: 'Core/Layout/Css', rename: () => 'screen.css' }],
         }),
     ],
