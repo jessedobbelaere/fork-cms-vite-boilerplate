@@ -44,6 +44,10 @@ class ViteAssetExtension extends AbstractExtension
         bool $includeReactRefreshShim = false,
         bool $includeModulePreloadShim = true
     ) {
+        if (!(defined('APPLICATION') && APPLICATION === 'Frontend')) {
+            return;
+        }
+
         $theme = Theme::getTheme();
         $this->httpClient = new Client();
         $this->environment = $environment;
@@ -219,6 +223,10 @@ HTML;
      */
     public function onKernelException(GetResponseForExceptionEvent $event): void
     {
+        if (!isset($this->exceptionListener)) {
+            return;
+        }
+
         // Let the normal exceptionlistener handle the event first
         $this->exceptionListener->onKernelException($event);
 
