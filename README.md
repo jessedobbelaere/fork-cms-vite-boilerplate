@@ -75,7 +75,7 @@ services:
         autowire: true
         arguments:
             $environment: '%kernel.environment%'
-            $includeReactRefreshShim: true
+            $includeReactRefreshShim: false
         tags:
             - { name: twig.extension }
             - { name: kernel.event_listener, event: kernel.exception }

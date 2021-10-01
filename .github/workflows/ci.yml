@@ -29,7 +29,6 @@ jobs:
               run: |
                   test -f dist/manifest.json
                   test -f dist/assets/app.*.css
-                  test -f dist/assets/app-legacy.*.js
                   test -f dist/assets/app.*.js
                   test -f dist/critical/home_critical.min.css
                   test -f dist/critical/page_critical.min.css

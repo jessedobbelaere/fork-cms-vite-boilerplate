@@ -1,6 +1,6 @@
 import * as path from 'path';
-import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
+import legacy from '@vitejs/plugin-legacy';
 import checker from 'vite-plugin-checker';
 import critical from 'rollup-plugin-critical';
 import copy from 'rollup-plugin-copy';
@@ -24,9 +24,9 @@ export default ({ command }) => ({
 
     plugins: [
         // Generate a legacy bundle for non-ESM native browsers
-        legacy({
-            targets: ['defaults', 'not IE 11'],
-        }),
+        // legacy({
+        //     targets: ['defaults', 'not IE 11'],
+        // }),
 
         // Reload the Vite server when our (twig) templates changed
         ViteRestart({
