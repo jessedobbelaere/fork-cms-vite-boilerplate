@@ -15,20 +15,12 @@ View the full documentation at https://tailwindcss.com.
 
 // See defaults: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 module.exports = {
-    mode: 'jit',
-    purge: {
-        // We use the plugin "tailwindcss-forms" which adds reset styles for form elements. However, since purgecss cannot find
-        // any html input fields in our Twig templates (form directives), it strips the styles. Therefore, we don't allow purging the
-        // Base layer of Tailwind. @see https://github.com/tailwindlabs/tailwindcss-forms/issues/43#issuecomment-791465128
-        layers: ['components', 'utilities'],
-
-        // Purge our generated CSS and only leave the css classes found in these files.
-        content: [
-            './Core/Layout/Templates/**/*.{twig,html}',
-            './Core/Layout/EditorTemplates/**/*.{twig,html}',
-            './Core/Js/**/*.{js,jsx,ts,tsx}',
-            './Modules/**/Layout/{Templates,Widgets}/**/*.{twig,html}',
-        ],
-    },
+    // Purge our generated CSS and only leave the css classes found in these files.
+    content: [
+        './Core/Layout/Templates/**/*.{twig,html}',
+        './Core/Layout/EditorTemplates/**/*.{twig,html}',
+        './Core/Js/**/*.{js,jsx,ts,tsx}',
+        './Modules/**/Layout/{Templates,Widgets}/**/*.{twig,html}',
+    ],
     plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };

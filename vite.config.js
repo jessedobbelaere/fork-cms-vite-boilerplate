@@ -1,6 +1,5 @@
 import * as path from 'path';
 import ViteRestart from 'vite-plugin-restart';
-import legacy from '@vitejs/plugin-legacy';
 import checker from 'vite-plugin-checker';
 import critical from 'rollup-plugin-critical';
 import copy from 'rollup-plugin-copy';
